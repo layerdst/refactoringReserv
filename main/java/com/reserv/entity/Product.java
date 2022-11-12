@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,7 +27,7 @@ public class Product extends BaseTimeEntity {
     private Category category;
 
     @OneToMany(mappedBy = "product")
-    private List<ProductPrice> productPrices;
+    private List<ProductPrice> productPrices= new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name="promotion_id")
