@@ -10,7 +10,7 @@ public class ReservationInfoPrice {
 
     @Id
     @GeneratedValue
-    @Column(name="reservation_info_id")
+    @Column(name="reservation_info_price_id")
     private Long id;
 
     @ManyToOne
