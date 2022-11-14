@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class ReservationInfoPrice {
 
     @Id
-    @GeneratedValue
+
     @Column(name="reservation_info_price_id")
     private Long id;
 

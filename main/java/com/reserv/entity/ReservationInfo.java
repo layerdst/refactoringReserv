@@ -2,6 +2,7 @@ package com.reserv.entity;
 
 import com.reserv.entity.embeddable.BaseTimeEntity;
 import lombok.Getter;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -11,7 +12,6 @@ import java.time.LocalDateTime;
 public class ReservationInfo extends BaseTimeEntity {
 
     @Id
-    @GeneratedValue
     @Column(name="reservation_info_id")
     private Long id;
 
@@ -27,6 +27,8 @@ public class ReservationInfo extends BaseTimeEntity {
     private String reservationTel;
     private String reservationEmail;
     private LocalDateTime reservationDate;
-    private boolean cancelFlag;
+
+    @ColumnDefault("0")
+    private int cancelFlag;
 
 }

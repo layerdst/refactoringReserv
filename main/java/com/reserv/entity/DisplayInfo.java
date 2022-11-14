@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 public class DisplayInfo extends BaseTimeEntity {
 
     @Id
-    @GeneratedValue
     @Column(name = "display_info_id")
     private Long id;
 
@@ -17,7 +16,8 @@ public class DisplayInfo extends BaseTimeEntity {
     @JoinColumn(name="product_id")
     private Product product;
 
-    private LocalDateTime openingHours;
+    @Column(length = 10000)
+    private String openingHours;
     private String placeName;
     private String placeLot;
     private String placeStreet;

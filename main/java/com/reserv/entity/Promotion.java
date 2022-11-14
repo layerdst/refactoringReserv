@@ -8,13 +8,12 @@ import java.util.List;
 public class Promotion {
 
     @Id
-    @GeneratedValue
     @Column(name="promotion_id")
     private Long id;
 
-    @OneToMany(mappedBy = "promotion")
-    private List<Product> products = new ArrayList<>();
-
+    @ManyToOne
+    @JoinColumn(name="product_id")
+    private Product product;
 
 
 }

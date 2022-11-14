@@ -14,7 +14,6 @@ import java.math.BigDecimal;
 public class ProductPrice extends BaseTimeEntity {
 
     @Id
-    @GeneratedValue
     @Column(name="product_price_id")
     private Long id;
 
@@ -27,7 +26,6 @@ public class ProductPrice extends BaseTimeEntity {
 
     private int price;
 
-    @Column(precision = 5, scale = 4)
     private BigDecimal discountRate;
 
 

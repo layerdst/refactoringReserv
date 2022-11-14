@@ -6,7 +6,6 @@ import javax.persistence.*;
 public class ReservationUserCommentImage {
 
     @Id
-    @GeneratedValue
     @Column(name="reservation_user_comment_image_id")
     private Long id;
 
@@ -19,7 +18,7 @@ public class ReservationUserCommentImage {
     private ReservationUserComment reservationUserComment;
 
     @ManyToOne
-    @JoinColumn(name="file_info_id")
+    @JoinColumn(name="file_id")
     private FileInfo fileInfo;
 
 }

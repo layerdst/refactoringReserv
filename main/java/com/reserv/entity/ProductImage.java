@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class ProductImage {
 
     @Id
-    @GeneratedValue
+
     @Column(name="product_image_id")
     private Long id;
 
@@ -17,7 +17,7 @@ public class ProductImage {
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name="file_info_id")
+    @JoinColumn(name="file_id")
     private FileInfo fileInfo;
 
 }

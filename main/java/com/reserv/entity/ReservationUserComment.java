@@ -13,7 +13,6 @@ import java.math.BigDecimal;
 public class ReservationUserComment extends BaseTimeEntity {
 
     @Id
-    @GeneratedValue
     @Column(name = "reservation_user_comment_id")
     private Long id;
 
@@ -26,5 +25,7 @@ public class ReservationUserComment extends BaseTimeEntity {
     private ReservationInfo reservationInfo;
 
     private BigDecimal score;
+
+    @Column(length = 1000)
     private String comment;
 }

@@ -11,15 +11,14 @@ import javax.persistence.Id;
 public class FileInfo extends BaseTimeEntity {
 
     @Id
-    @GeneratedValue
-    @Column(name="file_info_id")
+    @Column(name="file_id")
     private Long id;
 
     private String fileName;
 
     private String saveFileName;
     private String ContentType;
-    private String deleteFlag;
+    private int deleteFlag;
 
 
 }

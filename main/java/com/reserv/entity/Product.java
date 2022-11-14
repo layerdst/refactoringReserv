@@ -18,8 +18,13 @@ public class Product extends BaseTimeEntity {
     @Column(name="product_id")
     private Long id;
 
+    @Column(length = 10000)
     private String content;
+
+    @Column(length = 1000)
     private String description;
+
+    @Column(length = 1000)
     private String event;
 
     @ManyToOne
@@ -28,11 +33,6 @@ public class Product extends BaseTimeEntity {
 
     @OneToMany(mappedBy = "product")
     private List<ProductPrice> productPrices= new ArrayList<>();
-
-    @ManyToOne
-    @JoinColumn(name="promotion_id")
-    private Promotion promotion;
-
 
 
 }
