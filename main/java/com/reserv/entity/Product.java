@@ -27,12 +27,17 @@ public class Product extends BaseTimeEntity {
     @Column(length = 1000)
     private String event;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="category_id")
     private Category category;
 
     @OneToMany(mappedBy = "product")
     private List<ProductPrice> productPrices= new ArrayList<>();
+
+    public void setCategory(Category category){
+        this.category = category;
+        category.getProducts().add(this);
+    }
 
 
 }

@@ -9,15 +9,15 @@ public class ReservationUserCommentImage {
     @Column(name="reservation_user_comment_image_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="reservation_info_id")
     private ReservationInfo reservationInfo;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="reservation_user_comment_id")
     private ReservationUserComment reservationUserComment;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="file_id")
     private FileInfo fileInfo;
 

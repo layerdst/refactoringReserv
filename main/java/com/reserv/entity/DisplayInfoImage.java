@@ -12,11 +12,11 @@ public class DisplayInfoImage {
     @Column(name="display_info_image_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="display_info_id")
     private DisplayInfo displayInfo;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="file_id")
     private FileInfo fileInfo;
 

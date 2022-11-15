@@ -13,11 +13,11 @@ public class ReservationInfoPrice {
     @Column(name="reservation_info_price_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="reservation_info_id")
     private ReservationInfo reservationInfo;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="product_price_id")
     private ProductPrice productPrice;
 
