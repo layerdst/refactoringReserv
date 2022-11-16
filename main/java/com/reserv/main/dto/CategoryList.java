@@ -1,8 +1,10 @@
 package com.reserv.main.dto;
 
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public class CategoryList {
     private Long id;
     private String name;

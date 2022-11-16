@@ -1,6 +1,8 @@
 package com.reserv.main;
 
 import com.reserv.main.dto.CategoryList;
+import com.reserv.main.dto.DisplayInfoList;
+import com.reserv.main.dto.PromotionList;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
@@ -22,6 +24,39 @@ public class MainRepository {
                 " join p.displayInfos d" +
                 " group by c.id " +
                 " order by c.id").getResultList();
+    }
+
+    public List<PromotionList> getPromotionList(){
+        return em.createQuery("select new com.reserv.main.dto.PromotionList(pm.id, p.id, fi.fileName) " +
+                " from Promotion pm " +
+                " join pm.product p " +
+                " join p.productImages pi " +
+                " join pi.fileInfo fi" +
+                " where pi.type = \'th\' and fi.deleteFlag = 0 " ).getResultList();
+    }
+
+    public List<DisplayInfoList> getDisplayInfos(){
+        return em.createQuery("select new com.reserv.main.dto.DisplayInfoList(di.id, p.id,p.description,di.placeName,p.content,fi.saveFileName) " +
+                "from DisplayInfo di " +
+                "join di.product p " +
+                "join p.productImages pi " +
+                "join p.category c " +
+                "join pi.fileInfo fi " +
+                "where pi.type = \'th\' and fi.deleteFlag = 0").getResultList();
+    }
+
+    public List<DisplayInfoList> getDisplayInfoByCategory(Long category){
+        return em.createQuery("select new com.reserv.main.dto.DisplayInfoList(di.id, p.id,p.description,di.placeName,p.content,fi.saveFileName) " +
+                "from DisplayInfo di " +
+                "join di.product p " +
+                "join p.productImages pi " +
+                "join p.category c " +
+                "join pi.fileInfo fi " +
+                "where c.id = :category " +
+                        "and pi.type = \'th\' " +
+                        "and fi.deleteFlag = 0")
+                .setParameter("category", category)
+                .getResultList();
     }
 
 
