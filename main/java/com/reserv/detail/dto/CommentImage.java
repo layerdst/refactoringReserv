@@ -7,17 +7,18 @@ import java.time.LocalDateTime;
 
 @Getter
 @ToString
-public class DisplayInfoImageFile {
+public class CommentImage {
 
-    private Long productId;
-    private Long productImageId;
-    private String Type;
-    private Long fileInfoId;
+    private Long imageId;
+    private Long reservationInfoId;
+    private Long reservationUserCommentId;
+    private Long fileId;
     private String fileName;
     private String saveFileName;
     private String contentType;
     private boolean deleteFlag;
     private LocalDateTime createDate;
     private LocalDateTime modifyDate;
+
 
 }
