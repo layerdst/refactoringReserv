@@ -31,4 +31,10 @@ class DetailRepositoryTest {
         System.out.println(productImage);
     }
 
+    @Test
+    public void getProductId(){
+        Long productId = detailRepository.findProductId(1L);
+        System.out.println(productId);
+    }
+
 }

@@ -47,5 +47,26 @@ public class DetailRepository {
                             "where p.id = :id ")
                 .setParameter("id", productId)
                 .getResultList();
+
     }
+
+    public List<ReservationUserComment> findComment(Long productId){
+        return em.createQuery(
+                "select rc from ReservationUserComment rc " +
+                        "join fetch rc.product p " +
+                        "join fetch rc.reservationInfo ri " +
+                        "where p.id = :productId")
+                .setParameter("productId", productId)
+                .getResultList();
+    }
+
+    public Long findProductId(Long displayInfoId){
+        return em.createQuery("select p.id from DisplayInfo di " +
+                            " join di.product p " +
+                            "where di.id = :diplayInfoId", Long.class)
+                            .setParameter("diplayInfoId", displayInfoId)
+                            .getSingleResult();
+    }
+
+
 }
