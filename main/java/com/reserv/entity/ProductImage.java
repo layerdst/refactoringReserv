@@ -1,8 +1,11 @@
 package com.reserv.entity;
 
+import lombok.ToString;
+
 import javax.persistence.*;
 
 @Entity
+@ToString
 public class ProductImage {
 
     @Id
