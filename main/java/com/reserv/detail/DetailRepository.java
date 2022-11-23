@@ -2,10 +2,7 @@ package com.reserv.detail;
 
 import com.reserv.detail.dto.DisplayInfoAll;
 import com.reserv.detail.dto.DisplayInfoDetail;
-import com.reserv.entity.DisplayInfo;
-import com.reserv.entity.ProductImage;
-import com.reserv.entity.ReservationInfo;
-import com.reserv.entity.ReservationUserComment;
+import com.reserv.entity.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -66,6 +63,13 @@ public class DetailRepository {
                             "where di.id = :diplayInfoId", Long.class)
                             .setParameter("diplayInfoId", displayInfoId)
                             .getSingleResult();
+    }
+
+    public List<ReservationUserCommentImage> findCommentImage(Long id){
+        return em.createQuery("select ruc from ReservationUserComment ruc " +
+                "join ruc.reservationInfo ri " +
+                "join ruc.product p " +
+                "where p.id = :id").setParameter("id", id).getResultList();
     }
 
 
